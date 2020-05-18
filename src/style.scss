@@ -1,0 +1,85 @@
+@import "./card.scss";
+@import "./icons/style";
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.container {
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  border: 5px solid #fff;
+  background-color: #666;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+  .content {
+    position: absolute;
+    right: 0;
+    left: calc(100% - 150px);
+    height: 100%;
+    color: #ddd;
+    padding: 0;
+   
+    h1 {
+      font-size: 20px;
+      margin-bottom: 10px 20p 0 0x;
+      padding-left: calc(100% - 100px);
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      padding-left: calc(100% - 90px);
+      list-style-type: none;
+      overflow: hidden;
+      li {
+        position: relative;
+        padding: 10px 0;
+        background: transparent;
+        transition: all 0.35s;
+        span {
+          position: relative;
+        }
+        i {
+          margin-right: 5px;
+        }
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: transparent;
+          content: "";
+          z-index: 1;
+        }
+        &:before {
+          position: absolute;
+          content: "";
+          left: -100%;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          z-index: 0;
+          transition: all 0.25s;
+          opacity: 0;
+        }
+        cursor: pointer;
+
+        &:hover {
+          color: #fff;
+          &:before {
+            width: 200%;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

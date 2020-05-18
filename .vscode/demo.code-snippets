@@ -1,0 +1,73 @@
+{
+  "before-opacity":{
+    "scope": "scss",
+    "prefix": "before-opacity",
+    "body": [
+      "&:before {",
+      "\topacity: 1;",
+      "}"
+    ]
+  },
+  "before-bg":{
+    "scope": "scss",
+    "prefix": "before-bg",
+    "body": [
+      "&:before {",
+      "\tbackground-color: rgba(0, 0, 0, $1);",
+      "}"
+    ]
+  },
+  "before": {
+    "scope": "scss",
+    "prefix": "before-pseudo",
+    "body": [
+      "&:before {",
+      "\tcontent: \"\";",
+      "\tposition: absolute;",
+      "\twidth: 100%;",
+      "\theight: 100%;",
+      "\topacity: 0;",
+      "\ttransition: all 0.4s;",
+      "}"
+    ]
+  },
+  "slice shade": {
+    "scope": "scss",
+    "prefix": "linear-gradient-overlay-shade",
+    "body": [
+      "background: linear-gradient(",
+      "\t90deg,",
+      "\trgba(0,0,0, (\\$num - 1) * .1) 0%,",
+      "\trgba(0,0,0, \\$num * .1) 100%,",
+      ");"
+    ]
+  },
+  "content shadow": {
+    "scope": "scss",
+    "prefix": "content-linear-shadow",
+    "body": [
+      "background: linear-gradient(",
+      "\t90deg,",
+      "\trgba(0,0,0, .5) 0%,",
+      "\trgba(0,0,0, .3) 20%,",
+      "\trgba(0,0,0, .0) 40%,",
+      ");"
+    ],
+    "description": "Log output to console"
+  },
+  "slides": {
+    "scope": "html",
+    "prefix": "slices",
+    "body": [
+      "<div class=\"slice s1\">",
+      "\t<div class=\"slice s2\">",
+      "\t\t<div class=\"slice s3\">",
+      "\t\t\t<div class=\"slice s4\">",
+      "\t\t\t\t<div class=\"slice s5\"></div>",
+      "\t\t\t</div>",
+      "\t\t</div>",
+      "\t</div>",
+      "</div>"
+    ]
+  }
+}

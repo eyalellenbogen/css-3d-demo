@@ -1,0 +1,69 @@
+$ratio: 0.56333;
+$cardWidth: 603px;
+$height: $cardWidth * $ratio;
+$items: 6;
+$sliceWidth: $cardWidth/$items;
+
+@mixin sliceBase() {
+}
+
+@mixin singleSlice($num) {
+}
+
+@mixin sliceHover($num) {
+}
+
+@mixin contentBackdrop() {
+}
+
+.card {
+  position: relative;
+  width: $cardWidth;
+  height: $height;
+
+  .content {
+    @include contentBackdrop();
+  }
+
+  &.demo {
+    .cover {
+      .slice {
+        @include sliceBase();
+        @for $i from 1 to $items {
+          &.s#{$i} {
+            @include singleSlice($i);
+          }
+        }
+      }
+    }
+    &:hover {
+      .cover {
+        .slice {
+          @for $i from 1 to $items {
+            &.s#{$i} {
+              @include sliceHover($i);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .cover {
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    .slice {
+      height: 100%;
+      transition: all 0.4s;
+      background-image: url('../assets/ironman.jpg');
+      background-size: $cardWidth $height;
+    }
+    > .slice {
+      transform: translate3d(0, 0, 0) !important;
+      &:before {
+        content: none !important;
+      }
+    }
+  }
+}
