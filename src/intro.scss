@@ -1,0 +1,87 @@
+@use "./icons/style.scss" as *;
+@use "sass:math";
+@use "sass:color";
+
+$accent: rgb(235, 207, 253);
+$bg: #e3f2ff;
+$textShadow: rgb(155, 121, 240);
+$textStroke: rgb(104, 60, 161);
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  perspective: 500px;
+  //   background-color: $bg;
+  background: radial-gradient(
+      circle,
+      transparent 20%,
+      $bg 20%,
+      $bg 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        $bg 20%,
+        $bg 80%,
+        transparent 80%,
+        transparent
+      )
+      50px 50px,
+    linear-gradient($accent 8px, transparent 8px) 0 -4px,
+    linear-gradient(90deg, $accent 8px, transparent 8px) -4px 0;
+  background-color: $bg;
+  background-size: 100px 100px, 100px 100px, 50px 50px, 50px 50px;
+}
+.container {
+  .text {
+    text-align: center;
+    h1 {
+      margin: 0;
+      padding: 20px;
+      font-size: 130px;
+      color: #fff;
+      text-shadow: -1px -1px 0 $textStroke, 1px -1px 0 $textStroke,
+        -1px 1px 0 $textStroke, 1px 1px 0 $textStroke, 1px 2px 1px $textShadow,
+        1px 3px 1px $textShadow, 1px 4px 1px $textShadow,
+        1px 5px 1px $textShadow, 1px 6px 1px $textShadow,
+        1px 7px 1px $textShadow, 1px 8px 1px $textShadow,
+        1px 9px 1px $textShadow, 1px 10px 1px $textShadow,
+        1px 18px 6px rgba(16, 16, 16, 0.4), 1px 22px 10px rgba(16, 16, 16, 0.2),
+        1px 25px 35px rgba(16, 16, 16, 0.2), 1px 30px 60px rgba(16, 16, 16, 0.4);
+    }
+  }
+  .image {
+    img {
+      display: block;
+      width: 400px;
+      margin: 50px auto;
+      box-sizing: border-box;
+      border: 10px solid #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  ul.me {
+    $color: color.adjust($accent, $blackness: 50%);
+    position: fixed;
+    font-weight: bold;
+    bottom: 20px;
+    right: 20px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    li {
+      margin-top: 15px;
+      font-size: 26px;
+      color: $color;
+      a {
+        color: $color;
+        text-decoration: none;
+      }
+    }
+  }
+}

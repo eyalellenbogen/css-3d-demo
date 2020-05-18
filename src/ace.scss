@@ -1,0 +1,72 @@
+$h: 320px;
+$r: 0.708;
+$w: $h * $r;
+$bg: #344757;
+$accent: rgb(92, 74, 104);
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  //   background-color: $bg;
+  background: radial-gradient(circle, transparent 20%, $bg 20%, $bg 80%, transparent 80%, transparent),
+    radial-gradient(circle, transparent 20%, $bg 20%, $bg 80%, transparent 80%, transparent) 50px 50px,
+    linear-gradient($accent 8px, transparent 8px) 0 -4px, linear-gradient(90deg, $accent 8px, transparent 8px) -4px 0;
+  background-color: $bg;
+  background-size: 100px 100px, 100px 100px, 50px 50px, 50px 50px;
+}
+
+.title {
+  padding: 40px 0;
+  h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
+  }
+}
+
+.container {
+  perspective: 600px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  overflow: visible;
+  margin-top:80px;
+}
+.card {
+  height: $h;
+  width: $w;
+  position: relative;
+
+  transform-style: preserve-3d;
+  animation: rotate 4s ease-in-out infinite;
+  .face {
+    position: absolute;
+    height: $h;
+    width: $w;
+    background-size: contain;
+    border-radius: 8px;
+
+    backface-visibility: hidden;
+    &.front {
+      background-image: url(/assets/card-front.jpg);
+    }
+    &.back {
+      background-image: url(/assets/card-back.jpg);
+      transform: rotate3d(0, 1, 0, 0.5turn);
+    }
+  }
+}
+
+@keyframes rotate {
+  50% {
+    transform: rotateY(0.5turn);
+  }
+  100% {
+    transform: rotateY(1turn);
+  }
+}
