@@ -35,27 +35,29 @@ body {
   justify-content: space-around;
   position: absolute;
   overflow: visible;
-  margin-top:80px;
+  margin-top: 80px;
 }
 .card {
+  transform-style: flat;
+
   height: $h;
   width: $w;
   position: relative;
-
-  transform-style: preserve-3d;
   animation: rotate 4s ease-in-out infinite;
   .face {
+    backface-visibility: visible;
+
     position: absolute;
     height: $h;
     width: $w;
     background-size: contain;
     border-radius: 8px;
 
-    backface-visibility: hidden;
     &.front {
       background-image: url(/assets/card-front.jpg);
     }
     &.back {
+      display: none;
       background-image: url(/assets/card-back.jpg);
       transform: rotate3d(0, 1, 0, 0.5turn);
     }
