@@ -38,14 +38,14 @@ body {
   margin-top: 80px;
 }
 .card {
+  transform-style: flat;
+
   height: $h;
   width: $w;
   position: relative;
-
-  transform-style: preserve-3d;
   animation: rotate 4s ease-in-out infinite;
   .face {
-    backface-visibility: hidden;
+    backface-visibility: visible;
 
     position: absolute;
     height: $h;
